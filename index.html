@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/lib/angular.min.js"></script>
+    <script src="js/controller/mainController.js"></script>
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="css/input.css">
+
+    <!-- Angular Material style sheet -->
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+    <!-- Angular Material Library -->
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+
+
+
+</head>
+<body ng-app="inputErrorsApp">
+<div ng-controller="AppCtrl" layout="column" ng-cloak>
+
+    <md-content layout-padding="">
+
+
+
+            <md-input-container md-no-float class="md-block">
+                <input ng-model="address" type="text" placeholder="Address" >
+                <md-icon md-svg-src="images/icon/ic_place_24px..svg" style="display:inline-block;"></md-icon>
+            </md-input-container>
+
+
+            <div>
+                <md-button ng-click="apiFunc(address)" type="submit">Submit</md-button>
+            </div>
+
+<div ng-show="responseData">
+
+    <p>formatted_address:{{responseData.results["0"].formatted_address}}</p>
+    <p>lat:{{responseData.results[0].geometry.location.lat}}</p>
+    <p>lng:{{responseData.results[0].geometry.location.lng}}</p>
+</div>
+
+    </md-content>
+
+</div>
+
+
+</body>
+</html>
